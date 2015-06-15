@@ -47,6 +47,7 @@ namespace QLBanHang.ImpleInterface
             }
             catch (Exception)
             {
+
                 throw;
             }
             
