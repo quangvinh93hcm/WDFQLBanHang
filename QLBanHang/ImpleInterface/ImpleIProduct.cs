@@ -89,8 +89,7 @@ namespace QLBanHang.ImpleInterface
                 _context.SaveChanges();
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
             

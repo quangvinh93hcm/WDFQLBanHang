@@ -17,5 +17,6 @@ namespace QLBanHang.Interface
         void Update(Product product);
         void Save();
 
+
     }
 }
