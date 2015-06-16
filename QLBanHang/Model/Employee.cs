@@ -20,19 +20,19 @@ namespace QLBanHang.Model
             this.Orders = new HashSet<Order>();
         }
     
-        public string EmloyID { get; set; }
-        public string EmloyName { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
         public string Email { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
-        public string EManager { get; set; }
+        public string EmployeeManager { get; set; }
         public string Address { get; set; }
         public System.DateTime Birthday { get; set; }
-        public Nullable<int> Role { get; set; }
+        public Nullable<int> RoleID { get; set; }
     
         public virtual ICollection<Employee> Employees1 { get; set; }
         public virtual Employee Employee1 { get; set; }
-        public virtual Role Role1 { get; set; }
+        public virtual Role Role { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
     }
 }

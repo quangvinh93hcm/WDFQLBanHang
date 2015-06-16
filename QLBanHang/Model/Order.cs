@@ -21,7 +21,7 @@ namespace QLBanHang.Model
     
         public string OrderID { get; set; }
         public string CustomerID { get; set; }
-        public string EmloyID { get; set; }
+        public string EmployeeID { get; set; }
         public System.DateTime DateOrder { get; set; }
         public int State { get; set; }
         public int PaymentTo { get; set; }

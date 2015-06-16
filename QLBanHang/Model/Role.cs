@@ -19,7 +19,7 @@ namespace QLBanHang.Model
             this.Employees = new HashSet<Employee>();
         }
     
-        public int RoleID { get; set; }
+        public int Id { get; set; }
         public string RoleName { get; set; }
     
         public virtual ICollection<Employee> Employees { get; set; }

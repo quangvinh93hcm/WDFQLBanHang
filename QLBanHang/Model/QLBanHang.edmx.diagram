@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="896d6b155fd34d7788cc7ad29f5e9813" Name="Diagram1">
+      <Diagram DiagramId="7fe3ded2ec104fe1b72a2c33c13a979e" Name="Diagram1">
         <EntityTypeShape EntityType="QLBanHangModel.Category" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBanHangModel.Customer" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBanHangModel.Employee" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
@@ -17,7 +17,7 @@
         <AssociationConnector Association="QLBanHangModel.FK_Products_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="QLBanHangModel.FK_Orders_Customers" ManuallyRouted="false" />
         <AssociationConnector Association="QLBanHangModel.FK_Employees_Employees" ManuallyRouted="false" />
-        <AssociationConnector Association="QLBanHangModel.FK_Employees_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBanHangModel.FK_Employees_Roles" ManuallyRouted="false" />
         <AssociationConnector Association="QLBanHangModel.FK_Orders_Employees" ManuallyRouted="false" />
         <AssociationConnector Association="QLBanHangModel.FK_Order_Details_Orders" ManuallyRouted="false" />
         <AssociationConnector Association="QLBanHangModel.FK_Order_Details_Products" ManuallyRouted="false" />

@@ -25,17 +25,17 @@
         </EntityType>
         <EntityType Name="Employees">
           <Key>
-            <PropertyRef Name="EmloyID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="EmloyID" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="EmloyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Email" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="UserName" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="Password" Type="char" MaxLength="60" Nullable="false" />
-          <Property Name="EManager" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="EmployeeManager" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Birthday" Type="date" Nullable="false" />
-          <Property Name="Role" Type="int" />
+          <Property Name="RoleID" Type="int" />
         </EntityType>
         <EntityType Name="Order_Details">
           <Key>
@@ -55,7 +55,7 @@
           </Key>
           <Property Name="OrderID" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="CustomerID" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="EmloyID" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="EmployeeID" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="DateOrder" Type="date" Nullable="false" />
           <Property Name="State" Type="int" Nullable="false" />
           <Property Name="PaymentTo" Type="int" Nullable="false" />
@@ -76,9 +76,9 @@
         </EntityType>
         <EntityType Name="Roles">
           <Key>
-            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Suppliers">
@@ -106,22 +106,22 @@
           <End Role="Employees1" Type="Self.Employees" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employees">
-              <PropertyRef Name="EmloyID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Employees1">
-              <PropertyRef Name="EManager" />
+              <PropertyRef Name="EmployeeManager" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employees_Role">
+        <Association Name="FK_Employees_Roles">
           <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
           <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Roles">
-              <PropertyRef Name="RoleID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Employees">
-              <PropertyRef Name="Role" />
+              <PropertyRef Name="RoleID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -166,10 +166,10 @@
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employees">
-              <PropertyRef Name="EmloyID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Orders">
-              <PropertyRef Name="EmloyID" />
+              <PropertyRef Name="EmployeeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -211,7 +211,7 @@
             <End Role="Employees" EntitySet="Employees" />
             <End Role="Employees1" EntitySet="Employees" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employees_Role" Association="Self.FK_Employees_Role">
+          <AssociationSet Name="FK_Employees_Roles" Association="Self.FK_Employees_Roles">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Employees" EntitySet="Employees" />
           </AssociationSet>
@@ -267,20 +267,20 @@
         </EntityType>
         <EntityType Name="Employee">
           <Key>
-            <PropertyRef Name="EmloyID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="EmloyID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="EmloyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="60" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="EManager" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="EmployeeManager" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Role" Type="Int32" />
+          <Property Name="RoleID" Type="Int32" />
           <NavigationProperty Name="Employees1" Relationship="Self.FK_Employees_Employees" FromRole="Employees" ToRole="Employees1" />
           <NavigationProperty Name="Employee1" Relationship="Self.FK_Employees_Employees" FromRole="Employees1" ToRole="Employees" />
-          <NavigationProperty Name="Role1" Relationship="Self.FK_Employees_Role" FromRole="Employees" ToRole="Roles" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Employees_Roles" FromRole="Employees" ToRole="Roles" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Employees" FromRole="Employees" ToRole="Orders" />
         </EntityType>
         <EntityType Name="Order_Details">
@@ -303,7 +303,7 @@
           </Key>
           <Property Name="OrderID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="CustomerID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="EmloyID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="DateOrder" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="State" Type="Int32" Nullable="false" />
           <Property Name="PaymentTo" Type="Int32" Nullable="false" />
@@ -330,11 +330,11 @@
         </EntityType>
         <EntityType Name="Role">
           <Key>
-            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Role" FromRole="Roles" ToRole="Employees" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Roles" FromRole="Roles" ToRole="Employees" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -386,22 +386,22 @@
           <End Role="Employees1" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employees">
-              <PropertyRef Name="EmloyID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Employees1">
-              <PropertyRef Name="EManager" />
+              <PropertyRef Name="EmployeeManager" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employees_Role">
+        <Association Name="FK_Employees_Roles">
           <End Role="Roles" Type="Self.Role" Multiplicity="0..1" />
           <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Roles">
-              <PropertyRef Name="RoleID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Employees">
-              <PropertyRef Name="Role" />
+              <PropertyRef Name="RoleID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -410,10 +410,10 @@
           <End Role="Orders" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employees">
-              <PropertyRef Name="EmloyID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Orders">
-              <PropertyRef Name="EmloyID" />
+              <PropertyRef Name="EmployeeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -475,7 +475,7 @@
             <End Role="Employees" EntitySet="Employees" />
             <End Role="Employees1" EntitySet="Employees" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employees_Role" Association="Self.FK_Employees_Role">
+          <AssociationSet Name="FK_Employees_Roles" Association="Self.FK_Employees_Roles">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Employees" EntitySet="Employees" />
           </AssociationSet>
@@ -525,15 +525,15 @@
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="QLBanHangModel.Employee">
               <MappingFragment StoreEntitySet="Employees">
-                <ScalarProperty Name="EmloyID" ColumnName="EmloyID" />
-                <ScalarProperty Name="EmloyName" ColumnName="EmloyName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="EManager" ColumnName="EManager" />
+                <ScalarProperty Name="EmployeeManager" ColumnName="EmployeeManager" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -554,7 +554,7 @@
               <MappingFragment StoreEntitySet="Orders">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="EmloyID" ColumnName="EmloyID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="DateOrder" ColumnName="DateOrder" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="PaymentTo" ColumnName="PaymentTo" />
@@ -579,7 +579,7 @@
           <EntitySetMapping Name="Roles">
             <EntityTypeMapping TypeName="QLBanHangModel.Role">
               <MappingFragment StoreEntitySet="Roles">
-                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
               </MappingFragment>
             </EntityTypeMapping>
