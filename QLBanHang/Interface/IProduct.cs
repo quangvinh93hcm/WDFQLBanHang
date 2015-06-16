@@ -16,7 +16,5 @@ namespace QLBanHang.Interface
         void Delete(int ProductID);
         void Update(Product product);
         void Save();
-
-
     }
 }
