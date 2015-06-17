@@ -17,7 +17,7 @@ namespace QLBanHang.ImpleInterface
         {
             _context = new Entities();
         }
-
+        
         public void Insert(Category category)
         {
             try
