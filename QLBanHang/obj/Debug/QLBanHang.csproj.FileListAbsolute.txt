@@ -1,1 +1,9 @@
 C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\bin\Debug\QLBanHang.exe.config
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\obj\Debug\QLBanHang.csprojResolveAssemblyReference.cache
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\obj\Debug\MainWindow.baml
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\obj\Debug\MainWindow.g.cs
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\obj\Debug\App.g.cs
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\obj\Debug\QLBanHang_MarkupCompile.cache
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\obj\Debug\QLBanHang.g.resources
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\obj\Debug\QLBanHang.Properties.Resources.resources
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\obj\Debug\QLBanHang.csproj.GenerateResource.Cache

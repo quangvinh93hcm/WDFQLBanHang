@@ -70,7 +70,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ImpleInterface\ImpleCategory.cs" />
+    <Compile Include="ImpleInterface\ImpleCustomer.cs" />
     <Compile Include="ImpleInterface\ImpleProduct.cs" />
+    <Compile Include="Interface\ICategory.cs" />
+    <Compile Include="Interface\ICustomer.cs" />
+    <Compile Include="Interface\IEmployee.cs" />
     <Compile Include="Interface\IProduct.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
