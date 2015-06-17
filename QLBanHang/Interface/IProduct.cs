@@ -12,6 +12,7 @@ namespace QLBanHang.Interface
         Product GetProductByID(int id);
         IEnumerable<Product> GetProductByName(string name);
         IEnumerable<Product> GetProductByMinQuantity();
+        IEnumerable<object> GetHotProduct();
         void Insert(Product product);
         void Delete(int ProductID);
         void Update(Product product);
