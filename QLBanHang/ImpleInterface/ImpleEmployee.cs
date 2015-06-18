@@ -18,7 +18,7 @@ namespace QLBanHang.ImpleInterface
             _context = new Entities();
         }
 
-        public Employee GetProductByID(string id)
+        public Employee GetEmployeeByID(string id)
         {
             var employee = _context.Employees.Where(p => p.Id == id).Single();
             if (employee == null)
@@ -28,7 +28,7 @@ namespace QLBanHang.ImpleInterface
             return employee;
         }
 
-        public IEnumerable<Employee> GetProductByName(string name)
+        public IEnumerable<Employee> GetEmployeeByName(string name)
         {
             var items = _context.Employees.Where(p => p.Name == name).ToList();
             if (items.Count() > 0)
@@ -52,7 +52,7 @@ namespace QLBanHang.ImpleInterface
 
         }
         
-        public void Delete(int ID)
+        public void Delete(string ID)
         {
             try
             {

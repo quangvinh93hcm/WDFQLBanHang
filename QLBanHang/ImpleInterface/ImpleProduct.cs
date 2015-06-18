@@ -9,11 +9,11 @@ using System.Data.Entity;
 
 namespace QLBanHang.ImpleInterface
 {
-    public class ImpleIProduct : IProduct
+    public class ImpleProduct : IProduct
     {
         private Entities _context;
 
-        public ImpleIProduct(Entities context)
+        public ImpleProduct(Entities context)
         {
             _context = new Entities();
         }
@@ -106,7 +106,7 @@ namespace QLBanHang.ImpleInterface
 
         }
 
-        public void Delete(int ProductID)
+        public void Delete(string ProductID)
         {
             try
             {
