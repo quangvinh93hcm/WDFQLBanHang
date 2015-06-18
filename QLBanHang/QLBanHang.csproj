@@ -72,6 +72,7 @@
     </Compile>
     <Compile Include="ImpleInterface\ImpleCategory.cs" />
     <Compile Include="ImpleInterface\ImpleCustomer.cs" />
+    <Compile Include="ImpleInterface\ImpleEmployee.cs" />
     <Compile Include="ImpleInterface\ImpleProduct.cs" />
     <Compile Include="Interface\ICategory.cs" />
     <Compile Include="Interface\ICustomer.cs" />

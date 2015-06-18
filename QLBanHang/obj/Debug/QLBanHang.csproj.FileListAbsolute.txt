@@ -7,3 +7,11 @@ C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\obj\Debug\QLBanHang_MarkupCompile.cach
 C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\obj\Debug\QLBanHang.g.resources
 C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\obj\Debug\QLBanHang.Properties.Resources.resources
 C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\obj\Debug\QLBanHang.csproj.GenerateResource.Cache
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\bin\Debug\QLBanHang.exe
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\bin\Debug\QLBanHang.pdb
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\bin\Debug\EntityFramework.dll
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\bin\Debug\EntityFramework.xml
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\obj\Debug\QLBanHang.exe
+C:\Users\Vinh\Desktop\QLBanHang\QLBanHang\obj\Debug\QLBanHang.pdb
