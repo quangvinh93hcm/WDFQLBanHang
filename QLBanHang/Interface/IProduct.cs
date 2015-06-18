@@ -9,13 +9,13 @@ namespace QLBanHang.Interface
 {
     public interface IProduct
     {
-        Product GetProductByID(int id);
+        Product GetProductByID(string id);
         IEnumerable<Product> GetProductByName(string name);
         IEnumerable<Product> GetProductByMinQuantity();
         IEnumerable<object> GetHotProduct();
         IEnumerable<object> GetProductByMaxTotal();
         void Insert(Product product);
-        void Delete(int ProductID);
+        void Delete(string ProductID);
         void Update(Product product);
         void Save();
     }

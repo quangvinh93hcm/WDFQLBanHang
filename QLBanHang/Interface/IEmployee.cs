@@ -9,10 +9,10 @@ namespace QLBanHang.Interface
 {
     public interface IEmployee
     {
-        Employee GetEmployeeByID(int id);
+        Employee GetEmployeeByID(string id);
         IEnumerable<Employee> GetEmployeeByName(string name);
         void Insert(Employee employee);
-        void Delete(int id);
+        void Delete(string id);
         void Update(Employee employee);
         void Save();
     }

@@ -14,7 +14,7 @@ namespace QLBanHang.Interface
         void Delete(int id);
         void Save();
         IEnumerable<Customer> GetCustomerByName(string name);
-        Customer GetCustomerByID(int id);
+        Customer GetCustomerByID(string id);
         IEnumerable<Customer> GetCustomerByAddress(string address);
     }
 }
