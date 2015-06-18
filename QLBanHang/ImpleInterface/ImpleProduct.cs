@@ -31,7 +31,11 @@ namespace QLBanHang.ImpleInterface
         public IEnumerable<Product> GetProductByName(string name)
         {
             var product = _context.Products.Where(p => p.ProductName == name).ToList();
-            return product;
+            if (product.Count() > 0)
+            {
+                return product;
+            }
+            return null;
         }
 
         public IEnumerable<Product> GetProductByMinQuantity()
@@ -59,9 +63,33 @@ namespace QLBanHang.ImpleInterface
                              SupplierName = resultSet.Key.SupplierName,
                              CategoryName = resultSet.Key.TypeName,
                              Quantity = resultSet.Sum(a => a.detail.Quantity),
-                             Total = resultSet.Sum(a => a.detail.Total)
-                         }).ToList();
-            return items;
+                         });
+            var itemMaxQuantity = items.Where(i => !items.Any(m => m.ProductID == i.ProductID && m.Quantity > i.Quantity)).ToList();
+            return itemMaxQuantity;
+        }
+
+        public IEnumerable<object> GetProductByMaxTotal()
+        {
+            var items = (from product in _context.Products
+                         join detail in _context.Order_Details
+                         on product.ProductID equals detail.ProductID
+                         group new { product, detail } by new
+                         {
+                             product.ProductID,
+                             product.ProductName,
+                             product.Supplier.SupplierName,
+                             product.Category.TypeName
+                         } into resultSet
+                         select new
+                         {
+                             ProductID = resultSet.Key.ProductID,
+                             ProductName = resultSet.Key.ProductName,
+                             SupplierName = resultSet.Key.SupplierName,
+                             CategoryName = resultSet.Key.TypeName,
+                             Total = resultSet.Sum(a => a.detail.Total),
+                         });
+            var itemMaxTotal = items.Where(i => !items.Any(m => m.ProductID == i.ProductID && m.Total > i.Total)).ToList();
+            return itemMaxTotal;
         }
 
         public void Insert(Product product)

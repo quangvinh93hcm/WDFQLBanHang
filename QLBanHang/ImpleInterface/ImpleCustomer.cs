@@ -76,7 +76,11 @@ namespace QLBanHang.ImpleInterface
         public IEnumerable<Customer> GetCustomerByName(string name)
         {
             var customers = _context.Customers.Where(c => c.CustomeName == name).ToList();
-            return customers;
+            if (customers.Count() > 0)
+            {
+                return customers;
+            }
+            return null;
         }
 
         public Customer GetCustomerByID(string id)
@@ -92,7 +96,11 @@ namespace QLBanHang.ImpleInterface
         public IEnumerable<Customer> GetCustomerByAddress(string address)
         {
             var customers = _context.Customers.Where(c => c.Address.Contains(address)).ToList();
-            return customers;
+            if (customers.Count() > 0)
+            {
+                return customers;
+            }
+            return null;
         }
     }
 }
