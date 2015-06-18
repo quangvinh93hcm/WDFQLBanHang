@@ -16,5 +16,6 @@ namespace QLBanHang.Interface
         IEnumerable<Customer> GetCustomerByName(string name);
         Customer GetCustomerByID(string id);
         IEnumerable<Customer> GetCustomerByAddress(string address);
+        IEnumerable<object> GetCustomerBuyMax();
     }
 }

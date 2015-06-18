@@ -102,5 +102,35 @@ namespace QLBanHang.ImpleInterface
             }
             return null;
         }
+
+        public IEnumerable<object> GetCustomerBuyMax()
+        {
+            var customers = from customer in _context.Customers
+                            join order in _context.Orders
+                            on customer.CustomerID equals order.CustomerID
+                            group new { customer, order } by new
+                         {
+                             customer.CustomerID,
+                             customer.CustomeName,
+                             customer.Address,
+                             customer.Phone,
+                             order.DateOrder,
+                             order.State,
+                             order.PaymentTo
+                         } into resultSet
+                            select new
+                            {
+                                CustomerID = resultSet.Key.CustomerID,
+                                CustomerName = resultSet.Key.CustomeName,
+                                Address = resultSet.Key.Address,
+                                Phone = resultSet.Key.Phone,
+                                DateOrder = resultSet.Key.DateOrder,
+                                State = resultSet.Key.State,
+                                TypePayment = resultSet.Key.PaymentTo,
+                                Total = resultSet.Count()
+                            };
+            var customerByMax = customers.Where(c => !customers.Any(m => m.CustomerID == c.CustomerID && m.Total > c.Total)).ToList();
+            return customerByMax;
+        }
     }
 }
