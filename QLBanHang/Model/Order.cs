@@ -25,6 +25,7 @@ namespace QLBanHang.Model
         public System.DateTime DateOrder { get; set; }
         public int State { get; set; }
         public int PaymentTo { get; set; }
+        public Nullable<int> IsDel { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Employee Employee { get; set; }
