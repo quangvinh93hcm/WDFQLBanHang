@@ -54,6 +54,7 @@
     <Property Name="DateOrder" Type="date" Nullable="false" />
     <Property Name="State" Type="int" Nullable="false" />
     <Property Name="PaymentTo" Type="int" Nullable="false" />
+    <Property Name="IsDel" Type="int" />
   </EntityType>
   <EntityType Name="Products">
     <Key>

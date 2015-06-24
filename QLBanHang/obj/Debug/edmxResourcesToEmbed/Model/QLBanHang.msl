@@ -51,6 +51,7 @@
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="QLBanHangModel.Order">
         <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />

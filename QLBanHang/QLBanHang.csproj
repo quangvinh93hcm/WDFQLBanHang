@@ -73,10 +73,12 @@
     <Compile Include="ImpleInterface\ImpleCategory.cs" />
     <Compile Include="ImpleInterface\ImpleCustomer.cs" />
     <Compile Include="ImpleInterface\ImpleEmployee.cs" />
+    <Compile Include="ImpleInterface\ImpleOrder.cs" />
     <Compile Include="ImpleInterface\ImpleProduct.cs" />
     <Compile Include="Interface\ICategory.cs" />
     <Compile Include="Interface\ICustomer.cs" />
     <Compile Include="Interface\IEmployee.cs" />
+    <Compile Include="Interface\IOrder.cs" />
     <Compile Include="Interface\IProduct.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -168,7 +170,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
